@@ -1,22 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow, noarchive">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Hira Bahadur Chhetri – Teigmacher and kitchen food-preparation specialist in Germany. Pizza, pide, lahmacun and momo dough, prep and HACCP.">
-<meta property="og:title" content="Hira Bahadur Chhetri – Teigmacher & Prep Cook">
-<meta property="og:description" content="Dough maker and food preparation specialist. Italian, Turkish and Nepali kitchens.">
-<style>html{color-scheme:light dark}body{margin:0}img,video{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Hira Bahadur Chhetri</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: a stainless prep counter — tiled hero, then sections laid out like labelled GN pans on a steel bench */
 :root{
   --bg:#f3f4f2; --surface:#ffffff; --steel:#dfe2e0; --fg:#1d2321; --muted:#5b6461;
   --line:#cdd2cf; --accent:#c8321c; --basil:#3f7a3a; --tape:#f1e7b8; --tape-fg:#3a3420;
-  --display:"Roboto Condensed","Arial Narrow","Helvetica Neue",sans-serif-condensed,Arial,sans-serif;
-  --body:system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:ui-monospace,Menlo,Consolas,monospace;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#141716; --surface:#1d2120; --steel:#262b29; --fg:#eceeed; --muted:#a3aba8;
@@ -132,13 +126,17 @@ footer{padding-block:24px;color:var(--muted);font-size:.9rem}
   .gallery img{transition:transform .25s ease}
   .gallery figure:hover img{transform:scale(1.02)}
 }
+
+.langswitch{display:inline-flex;border:2px solid var(--fg);margin-bottom:18px;background:var(--bg)}
+.langswitch button{font:700 .95rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.langswitch button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.langswitch button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
-</head>
-<body>
 
 <header class="hero">
   <div class="wrap">
     <div class="hero-text">
+      <div class="langswitch" role="group" aria-label="Language / Sprache"><button type="button" id="lang-en" data-lang="en" aria-pressed="true">English</button><button type="button" id="lang-de" data-lang="de" aria-pressed="false">Deutsch</button></div>
       <div class="eyebrow">Teigmacher · Kitchen Production · Germany</div>
       <h1>Hira Bahadur <span>Chhetri</span></h1>
       <p class="role">Dough maker and food preparation specialist with experience in Italian, Turkish and Nepali kitchens.</p>
@@ -308,29 +306,48 @@ footer{padding-block:24px;color:var(--muted);font-size:.9rem}
       <h2 style="margin-top:12px">Need a reliable dough maker?</h2>
       <p>I am open to positions in pizzerias and restaurant kitchens. Call or email me.</p>
       <div class="lines">
-        <div class="line"><span class="k">Phone</span><span class="v" id="phone" data-p="MjUzMiAzNzQyIDY3MTA=">Tap “Show”</span><button class="copy reveal" id="copy-phone" data-target="phone">Show</button></div>
-        <div class="line"><span class="k">Email</span><span class="v" id="email" data-p="bW9jLmxpYW1nQDk5aXJ0ZWhoY2FyaWg=">Tap “Show”</span><button class="copy reveal" id="copy-email" data-target="email">Show</button></div>
+        <div class="line"><span class="k">Phone</span><span class="v" id="phone">0176 2473 2352</span><button class="copy" id="copy-phone" data-target="phone">Copy</button></div>
+        <div class="line"><span class="k">Email</span><span class="v" id="email">hirachhetri99@gmail.com</span><button class="copy" id="copy-email" data-target="email">Copy</button></div>
       </div>
       <div class="status" id="status" aria-live="polite"></div>
     </div>
   </section>
 </main>
-<footer><div class="wrap">Hira Bahadur Chhetri · Teigmacher &amp; Kitchen Production<br>
-<small>Privacy: this site counts visits with GoatCounter, without cookies and without storing personal data. No other tracking. / Datenschutz: Besuche werden mit GoatCounter ohne Cookies und ohne Speicherung personenbezogener Daten gezählt.</small></div></footer>
+<footer><div class="wrap">Hira Bahadur Chhetri · Teigmacher &amp; Kitchen Production</div></footer>
 
 <script>
 document.querySelectorAll('.copy').forEach(function(b){
   b.addEventListener('click',function(){
-    var el=document.getElementById(b.dataset.target), st=document.getElementById('status');
-    if(b.classList.contains('reveal')){el.textContent=atob(el.dataset.p).split('').reverse().join('');b.classList.remove('reveal');b.textContent='Copy';st.textContent='';return;}
-    var txt=el.textContent.trim();
-    var sel=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);st.textContent='Selected. Press copy on your device.';};
-    try{navigator.clipboard.writeText(txt).then(function(){st.textContent='Copied: '+txt;},sel);}catch(e){sel();}
+    var el=document.getElementById(b.dataset.target), txt=el.textContent.trim(), st=document.getElementById('status');
+    var sel=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);st.textContent=T('Selected. Press copy on your device.');};
+    try{navigator.clipboard.writeText(txt).then(function(){st.textContent=T('Copied:')+' '+txt;},sel);}catch(e){sel();}
   });
 });
 </script>
+<script>
+(function(){
+var DE={"Teigmacher · Kitchen Production · Germany": "Teigmacher · Küchenproduktion · Deutschland", "Dough maker and food preparation specialist with experience in Italian, Turkish and Nepali kitchens.": "Teigmacher und Spezialist für Lebensmittelvorbereitung mit Erfahrung in italienischen, türkischen und nepalesischen Küchen.", "Dough & fermentation": "Teig & Fermentation", "§43 IfSG certified": "Belehrung §43 IfSG", "High volume": "Hohe Stückzahlen", "Contact me": "Kontakt", "See my prep": "Meine Arbeit", "About me": "Über mich", "Profile": "Profil", "I make the dough and prepare the station so the kitchen is ready before the first order comes in.": "Ich mache den Teig und bereite die Station vor, damit die Küche vor der ersten Bestellung bereit ist.", "I have hands-on experience in Italian, Turkish and Nepali kitchens, with dough for pizza, lahmacun, pide and momos. I control fermentation, hydration and proofing so every dough ball has the same texture and rise. I work cleanly, follow HACCP, and stay precise when the kitchen is busy.": "Ich habe praktische Erfahrung in italienischen, türkischen und nepalesischen Küchen, mit Teig für Pizza, Lahmacun, Pide und Momos. Ich kontrolliere Fermentation, Hydration und Gare, damit jede Teigkugel die gleiche Struktur und den gleichen Aufgang hat. Ich arbeite sauber, halte HACCP ein und bleibe auch bei viel Betrieb genau.", "Current role": "Aktuelle Stelle", "Teigmacher & prep cook, Italian pizzeria": "Teigmacher & Vorbereitungskoch, italienische Pizzeria", "Specialty": "Spezialgebiet", "Pizza, pide, lahmacun & momo dough": "Pizza-, Pide-, Lahmacun- & Momo-Teig", "Experience": "Berufserfahrung", "Since 2023 in Italian, Turkish & Nepali kitchens": "Seit 2023 in italienischen, türkischen & nepalesischen Küchen", "Food safety": "Lebensmittelsicherheit", "HACCP & food hygiene": "HACCP & Lebensmittelhygiene", "Health certificate": "Gesundheitszeugnis", "✓ Valid": "✓ Gültig", "Work permit": "Arbeitserlaubnis", "No sponsorship required": "Kein Visum-Sponsoring nötig", "Languages": "Sprachen", "English B2 · German A2": "Englisch B2 · Deutsch A2", "My mise en place": "Meine Mise en place", "Photos from my shifts": "Fotos aus meinen Schichten", "Station ready · 12 GN pans": "Station bereit · 12 GN-Behälter", "Full topping station set up before service.": "Komplette Belagstation vor dem Service aufgebaut.", "Teig · spiral mixer": "Teig · Spiralkneter", "Mixing the daily dough batch.": "Die tägliche Teigmenge kneten.", "Video · at work": "Video · bei der Arbeit", "Food preparation on shift, June 2025.": "Lebensmittelvorbereitung in der Schicht, Juni 2025.", "Tomaten · diced": "Tomaten · gewürfelt", "Even dice for even baking.": "Gleichmäßige Würfel für gleichmäßiges Backen.", "Tomaten · cored": "Tomaten · Strunk entfernt", "Washed and cored before cutting.": "Gewaschen und Strunk entfernt, dann geschnitten.", "Ananas · fresh": "Ananas · frisch", "Fresh pineapple, cut by hand.": "Frische Ananas, von Hand geschnitten.", "Lauch · washed": "Lauch · gewaschen", "Leek split and rinsed clean of grit.": "Lauch halbiert und sandfrei gewaschen.", "Spargel · cut": "Spargel · geschnitten", "Green asparagus, cut to size.": "Grüner Spargel, passend geschnitten.", "Teigballen · resting": "Teigballen · Ruhezeit", "Dough portioned, rounded and left to proof.": "Teig portioniert, rundgeschliffen und zum Gehen gestellt.", "Vegetables and cold cuts, separated and covered.": "Gemüse und Aufschnitt, getrennt und abgedeckt.", "Chorizo · sliced": "Chorizo · geschnitten", "Sliced thin and stacked for fast topping.": "Dünn geschnitten und gestapelt zum schnellen Belegen.", "Schinken · for slicer": "Schinken · für die Aufschnittmaschine", "Cured ham, wrapped and ready to slice.": "Rohschinken, verpackt und bereit zum Schneiden.", "Most recent first": "Neueste zuerst", "06/2025 – today": "06/2025 – heute", "Current": "Aktuell", "Teigmacher / Prep Cook / Quality Assurance": "Teigmacher / Vorbereitungskoch / Qualitätssicherung", "Italian Pizzeria": "Italienische Pizzeria", "Make and portion pizza dough every day with standard recipes and controlled fermentation.": "Täglich Pizzateig nach Standardrezepten herstellen und portionieren, mit kontrollierter Fermentation.", "Manage dough temperature, proofing time and storage for consistent texture and rise.": "Teigtemperatur, Gare und Lagerung steuern für gleichbleibende Struktur und Aufgang.", "Check taste, texture and appearance to keep the product standard.": "Geschmack, Struktur und Aussehen prüfen, um den Produktstandard zu halten.", "Pre-prepare vegetables: wash, peel, core, dice and slice for the topping station.": "Gemüse vorbereiten: waschen, schälen, entkernen, würfeln und schneiden für die Belagstation.", "Pre-prepare meat and cold cuts: slice ham, salami and chorizo and store them separately from vegetables.": "Fleisch und Aufschnitt vorbereiten: Schinken, Salami und Chorizo schneiden und getrennt vom Gemüse lagern.", "Prepare sauces for pizza and other dishes.": "Saucen für Pizza und andere Gerichte zubereiten.", "Check and record fridge and freezer temperatures, and keep food in the correct cold chain.": "Kühl- und Tiefkühltemperaturen kontrollieren und dokumentieren, Kühlkette einhalten.", "Back-of-house work: receive and check deliveries, label and date containers, rotate stock (first in, first out) and clean the kitchen and equipment.": "Arbeiten hinter den Kulissen: Lieferungen annehmen und prüfen, Behälter beschriften und datieren, Ware nach FIFO verbrauchen, Küche und Geräte reinigen.", "Follow HACCP and hygiene rules through the whole shift.": "HACCP- und Hygieneregeln während der ganzen Schicht einhalten.", "Kitchen Staff": "Küchenhilfe", "Turkish Pizza Restaurant": "Türkisches Pizzarestaurant", "Prepared dough and ingredients for lahmacun and pide with traditional recipes.": "Teig und Zutaten für Lahmacun und Pide nach traditionellen Rezepten vorbereitet.", "Supported food preparation and baking in a fast-paced kitchen.": "Bei Vorbereitung und Backen in einer schnellen Küche mitgearbeitet.", "Checked quality and temperature at each stage of preparation.": "Qualität und Temperatur in jedem Arbeitsschritt kontrolliert.", "Kept the kitchen clean and food-safe.": "Küche sauber und hygienisch gehalten.", "Asian Restaurant · Nepali Kitchen": "Asiatisches Restaurant · Nepalesische Küche", "Prepared vegetables, meat and spices for Nepali and Asian dishes.": "Gemüse, Fleisch und Gewürze für nepalesische und asiatische Gerichte vorbereitet.", "Made dough and fillings for momos and other traditional dishes.": "Teig und Füllungen für Momos und andere traditionelle Gerichte hergestellt.", "Supported the cooks during busy service and kept the station stocked.": "Die Köche im vollen Service unterstützt und die Station aufgefüllt.", "Followed hygiene rules and kept the kitchen clean.": "Hygieneregeln eingehalten und die Küche sauber gehalten.", "Skills": "Fähigkeiten", "Two stations": "Zwei Stationen", "Pizza, pide & lahmacun dough": "Pizza-, Pide- & Lahmacun-Teig", "Momo dough & fillings": "Momo-Teig & Füllungen", "Fermentation & proofing schedules": "Fermentations- & Gärzeiten", "Hydration ratio & dough temperature": "Hydration & Teigtemperatur", "Dough storage & shelf life": "Teiglagerung & Haltbarkeit", "Kitchen & quality": "Küche & Qualität", "Vegetable & meat pre-preparation": "Vorbereitung von Gemüse & Fleisch", "Sauce preparation": "Saucenherstellung", "Fridge & freezer temperature control": "Temperaturkontrolle Kühl- & Tiefkühlgeräte", "Deliveries, labelling & stock rotation": "Warenannahme, Beschriftung & FIFO", "Quality and consistency checks": "Qualitäts- und Konsistenzkontrollen", "High-volume workflow, teamwork & time management": "Arbeit bei hohem Volumen, Teamarbeit & Zeitmanagement", "English": "Englisch", "Contact": "Kontakt", "Need a reliable dough maker?": "Suchen Sie einen zuverlässigen Teigmacher?", "I am open to positions in pizzerias and restaurant kitchens. Call or email me.": "Ich suche eine Stelle in einer Pizzeria oder Restaurantküche. Rufen Sie mich an oder schreiben Sie mir.", "Phone": "Telefon", "Email": "E-Mail", "Copy": "Kopieren", "Show": "Anzeigen", "Tap “Show”": "„Anzeigen“ tippen", "Copied:": "Kopiert:", "Selected. Press copy on your device.": "Markiert. Bitte auf Ihrem Gerät kopieren.", "Hira Bahadur Chhetri · Teigmacher & Kitchen Production": "Hira Bahadur Chhetri · Teigmacher & Küchenproduktion"}, EN={}; for(var k in DE) EN[DE[k]]=k;
+var lang='en';
+window.T=function(s){var t=s.trim();return lang==='de'&&DE[t]?s.replace(t,DE[t]):s;};
+function apply(l){
+  lang=l; document.documentElement.lang=l;
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n;
+  while((n=w.nextNode())){
+    if(n.parentNode.closest('script,style,.langswitch'))continue;
+    var t=n.nodeValue.trim(); if(!t)continue;
+    var en=EN[t]||t, out=l==='de'?(DE[en]||en):en;
+    if(out!==t) n.nodeValue=n.nodeValue.replace(t,out);
+  }
+  document.querySelectorAll('.langswitch button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false');});
+  var st=document.getElementById('status'); if(st) st.textContent='';
+  try{localStorage.setItem('lang',l);}catch(e){}
+}
+document.querySelectorAll('.langswitch button').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.lang);});});
+var start='en', h=(location.hash||'').toLowerCase();
+try{var s=localStorage.getItem('lang'); if(s) start=s; else if((navigator.language||'').toLowerCase().indexOf('de')===0) start='de';}catch(e){}
+if(h==='#de'||h==='#en') start=h.slice(1);
+if(start!=='en') apply(start);
+})();
+</script>
 
-<!-- Visitor statistics: replace hira-chhetri with your GoatCounter code if different -->
-<script data-goatcounter="https://hira-chhetri.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-</body>
-</html>
+</body></html>
